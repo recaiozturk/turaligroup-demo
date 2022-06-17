@@ -9,6 +9,7 @@ namespace TuralıGroupDemo.Repository.ConcreteEF
 {
     public class EfClientDal : EfGenericRepository<Client, Context>, IClientDal
     {
+        //kullanıcı sistemde var mı burada kontrol ediyoruz
         public bool LoginCheck(string username, string password)
         {
             using (var context = new Context())

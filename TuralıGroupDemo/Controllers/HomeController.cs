@@ -38,6 +38,7 @@ namespace TuralıGroupDemo.Controllers
             return View(model);           
         }
 
+        //Ürünler sayfası
         public ActionResult Products()
         {
             return View(new ProductListModel
@@ -53,6 +54,7 @@ namespace TuralıGroupDemo.Controllers
             return View();
         }
 
+        //Sepete Ürün Ekle
         public ActionResult AddShopCart(OrderLine model)
         {
             var orderLine = new OrderLine()
