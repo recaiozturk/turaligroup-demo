@@ -1,0 +1,59 @@
+﻿
+@model TuralıGroupDemo.Models.ProductListModel
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ürün Listesi</h1>
+<hr />
+
+@if (Model.Products.Count() > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Ürün İsmi</td>
+                <td>Alış Fiyatı</td>
+                <td>Satış Fiyatı</td>
+                <td>İskonto(%)</td>
+                <td>KDV(%)</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name </td>
+                    <td>@item.PurchasePrice </td>
+                    <td>@item.SalePrice </td>
+                    <td>@item.Discount</td>
+                    <td>@item.KDV</td>
+                    <td>
+                        @*<a class="btn btn-primary btn-sm mr-2" href="/admin/EditProduct/@item.Id">Edit</a>*@
+
+                        <form action="/home/AddShopCart" method="post" style="display:inline">
+                            <input type="hidden" name="ProductId" value="@item.Id" />
+                            <input type="number" name="Quantity" value="0" style="width:40px;" />
+                            <input type="hidden" name="Price" value="@item.PurchasePrice" style="width:40px;" />
+                            <button type="submit" class="btn btn-success btn-sm mb-1">Sepete Ekle</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h4>No Products</h4>
+    </div>
+}

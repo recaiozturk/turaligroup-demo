@@ -1,0 +1,56 @@
+﻿
+@model TuralıGroupDemo.Models.ClientLıstModel
+
+@{
+    ViewBag.Title = "ClientList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Admin Clients</h1>
+<hr />
+
+@if (Model.Clients.Count() > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Surname</td>
+                <td>City</td>
+                <td>Phone</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Clients)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name </td>
+                <td>@item.Surname </td>
+                <td>@item.City </td>
+                <td>@item.Phone</td>
+                <td>
+                    <a class="btn btn-primary btn-sm mr-2" href="/admin/EditClient/@item.Id">Edit</a>
+
+                    <form action="/admin/DeleteClient" method="post" style="display:inline">
+                        <input type="hidden" name="clientId" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm ">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h4>No Clients</h4>
+    </div>
+}
+

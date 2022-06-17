@@ -1,0 +1,57 @@
+﻿
+@model TuralıGroupDemo.Models.BankListModel
+
+@{
+    ViewBag.Title = "BankList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Admin Banks</h1>
+<hr />
+
+@if (Model.Banks.Count() > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Banka İsmi</td>
+                <td>Bakiyeı</td>
+                <td>Ekstra-Vade</td>
+                
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Banks)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name </td>
+                    <td>@item.Balance </td>
+                    <td>@item.Extra </td>
+                    
+                    <td>
+                        <a class="btn btn-primary btn-sm mr-2" href="/admin/EditBank/@item.Id">Edit</a>
+
+                        <form action="/admin/DeleteBank" method="post" style="display:inline">
+                            <input type="hidden" name="bankId" value="@item.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm ">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h4>No Banks</h4>
+    </div>
+}
+
+

@@ -1,0 +1,157 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        .vl {
+            border-left: 3px solid grey;
+            height: 500px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Demo</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">Home</a>
+                </li>
+
+                @if (Session["sessionUsername"]!=null && Session["sessionUsername"].ToString().ToLower() == "admin")
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Client-Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/admin/ClientList">Client List</a>
+                            <a class="dropdown-item" href="/admin/CreateClient">Create Client</a>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Product-Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/admin/ProductList">Product List</a>
+                            <a class="dropdown-item" href="/admin/CreateProduct">Create Product</a>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bank-Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/admin/BankList">Bank List</a>
+                            <a class="dropdown-item" href="/admin/CreateBank">Create Bank</a>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Case-Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/admin/CaseList">Case List</a>
+                            <a class="dropdown-item" href="/admin/CreateCase">Create Case</a>
+
+                        </div>
+                    </li>
+                }
+
+
+
+
+            </ul>
+
+
+
+            <ul class="navbar-nav mr-auto">
+
+                @if (Session["sessionUsername"] != null)
+                {
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">@Session["sessionUsername"].ToString()</a>
+                    </li>
+
+                    
+
+                    <li class="nav-item">
+                        <a href="home/LogOut" class="nav-link">Logout</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a href="home/login" class="nav-link">Login</a>
+                    </li>
+                }
+
+
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container  mb-5" style="padding-top:100px">
+        <div class="row">
+            <div class="col-md-8">
+                @RenderBody()
+
+            </div>
+
+            
+
+            <div class="col-md-1">
+                <div class="vl"></div>
+
+            </div>
+
+
+
+            <div class="col-md-3">
+
+                
+
+
+                <div class="alert alert-warning">
+                    <h4>No Products</h4>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
