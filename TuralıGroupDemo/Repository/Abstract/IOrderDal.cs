@@ -7,10 +7,7 @@ using TuralıGroupDemo.Entity;
 
 namespace TuralıGroupDemo.Repository.Abstract
 {
-    public interface IClientDal:IRepository<Client>
+    public interface IOrderDal:IRepository<Order>
     {
-
-        //geriye id döndürsün
-        int LoginCheck(string username, string password);
     }
 }

@@ -1,10 +1,12 @@
 ﻿
-@model TuralıGroupDemo.Models.ProductListModel
+@model TuralıGroupDemo.Models.ProductsViewModel
 
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<a href="/home/ShopCard" class="btn btn-primary btn-lg mb-4" style="width:300px;">Sepet(@Model.ShopCardProductCount)</a>
 
 <h1>Ürün Listesi</h1>
 <hr />

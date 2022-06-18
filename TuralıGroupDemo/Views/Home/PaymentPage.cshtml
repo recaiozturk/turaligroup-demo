@@ -1,0 +1,77 @@
+﻿
+
+@model TuralıGroupDemo.Models.PaymentViewModel
+
+@{
+    ViewBag.Title = "PaymentPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1> Ödeme Yöntemi Seçin</h1>
+<hr />
+
+
+
+
+<p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Banka
+    </a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Kasa
+    </a>
+</p>
+
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <form action="/home/PaymentPage" method="post">
+            <input type="hidden" name="payment" value="Bank"/>
+            <select name="selectedValue" class="selectpicker">
+
+                @foreach (var bank in Model.Banks)
+                {
+                    
+                    <option value="@bank.Id">@bank.Name</option>
+
+                }
+
+
+            </select>
+
+            <button type="submit" class="btn btn-success mt-2">Ödeme Yap</button>
+        </form>
+
+
+
+    </div>
+</div>
+<div class="collapse" id="collapseExample2">
+    <div class="card card-body">
+
+        <form action="/home/PaymentPage" method="post">
+
+            <input type="hidden" name="payment" value="Case" />
+            <select name="selectedValue" class="selectpicker">
+
+                @foreach (var casee in Model.Cases)
+                {
+
+                    <option value="@casee.Id">@casee.Name</option>
+
+                }
+
+
+            </select>
+
+            <button type="submit" class="btn btn-success mt-2">Ödeme Yap</button>
+        </form>
+            
+
+            
+
+    </div>
+</div>
+
+
+
+

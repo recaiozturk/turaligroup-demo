@@ -7,11 +7,85 @@
 }
 
 <div class="row">
-    <button class="btn btn-primary btn-lg" style="width:300px;">Sepet(@Model.ShopCardProductCount)</button>
+    <div class="col-md-9">
 
-    <a href="/home/products" class="btn btn-warning btn-lg ml-3" style="width:300px;">Ürünler</a>
+        @if (Session["sessionUsername"] != null)
+        {
+        <div class="row">
 
+            <div class="alert alert-warning">
+                <h6> Hoşgeldin , @Session["sessionUsername"] </h6>
+            </div>
+
+            @if (Model.ClientDebt > 0)
+            {
+                <div class="alert alert-warning ml-3">
+
+                    <button class="btn  btn-danger">Borç : @Model.ClientDebt</button>
+                    <a href="/home/PaymentPage" class="btn btn-success">Ödeme Yap</a>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning ml-3">
+
+                    <button class="btn  btn-success">Borcunuz Bulunmamaktadır.</button>
+                    
+                </div>
+            }
+
+
+
+        </div>
+
+            <div class="row">
+
+
+
+                @*<a href="/home/ShopCard" class="btn btn-primary btn-lg" style="width:300px;">Sepet(@Model.ShopCardProductCount)</a>*@
+
+                <a href="/home/products" class="btn btn-warning btn-lg" style="width:300px;">Ürünler</a>
+
+            </div>
+        }
+    </div>
+
+    <div class="col-md-1">
+        <div class="vl"></div>
+
+    </div>
+
+    
+
+    <div class="col-md-2">
+        <div class="row mt-3">
+
+            <h3>Bankalar</h3>
+            @foreach (var bank in Model.Banks)
+            {
+                <button class="btn btn-info btn-lg mt-1">@bank.Name : @bank.Balance </button>
+            }
+
+        </div>
+
+        <div class="row mt-3">
+
+            <h3>Kasalar</h3>
+            @foreach (var casee in Model.Cases)
+            {
+                <button class="btn btn-info btn-lg mt-1">@casee.Name : @casee.Balance </button>
+            }
+            
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
+
 
 
 

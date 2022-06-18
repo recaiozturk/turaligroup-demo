@@ -13,6 +13,8 @@ namespace TuralıGroupDemo.Entity
         public string Name { get; set; }
         public string Password  { get; set; }
         public string Surname { get; set; }
+
+        public decimal Debt { get; set; } //borç
         public string Phone { get; set; }
         public string  City { get; set; }
     }

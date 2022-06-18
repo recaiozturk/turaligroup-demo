@@ -21,6 +21,8 @@ namespace TuralıGroupDemo.Entity
         public DbSet<Product> Products { get; set; }
         public DbSet<Bank> Banks { get; set; }
         public DbSet<Case> Cases { get; set; }
+        public DbSet<OrderLine> OrderLines { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
 
     }

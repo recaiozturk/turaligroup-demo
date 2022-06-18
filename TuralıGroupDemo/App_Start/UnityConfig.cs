@@ -19,6 +19,8 @@ namespace TuralıGroupDemo
             container.RegisterType<IProductDal, EfProductDal>();
             container.RegisterType<IBankDal, EfBankDal>();
             container.RegisterType<ICaseDal, EfCaseDal>();
+            container.RegisterType<IOrderDal, EfOrderDal>();
+
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
