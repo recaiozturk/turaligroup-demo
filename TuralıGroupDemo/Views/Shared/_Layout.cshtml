@@ -28,51 +28,51 @@
             <a class="navbar-brand" href="/">Demo</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#" class="nav-link active">Anasayfa</a>
                 </li>
 
-                @if (Session["sessionUsername"]!=null && Session["sessionUsername"].ToString().ToLower() == "admin")
+                @if (Session["sessionUsername"] != null && Session["sessionUsername"].ToString().ToLower() == "admin")
                 {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Client-Admin
+                            Müşteri-Yönet
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/ClientList">Client List</a>
-                            <a class="dropdown-item" href="/admin/CreateClient">Create Client</a>
+                            <a class="dropdown-item" href="/admin/ClientList">Müşteri Listesi</a>
+                            <a class="dropdown-item" href="/admin/CreateClient">Müşteri Oluştur</a>
 
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Product-Admin
+                            Ürün-Yönet
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/ProductList">Product List</a>
-                            <a class="dropdown-item" href="/admin/CreateProduct">Create Product</a>
+                            <a class="dropdown-item" href="/admin/ProductList">Ürün Listesi</a>
+                            <a class="dropdown-item" href="/admin/CreateProduct">Ürün Ekle</a>
 
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Bank-Admin
+                            Bank-Yönet
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/BankList">Bank List</a>
-                            <a class="dropdown-item" href="/admin/CreateBank">Create Bank</a>
+                            <a class="dropdown-item" href="/admin/BankList">Banka Listesi</a>
+                            <a class="dropdown-item" href="/admin/CreateBank">Banka Oluştur</a>
 
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Case-Admin
+                            Kasa-Yönet
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/CaseList">Case List</a>
-                            <a class="dropdown-item" href="/admin/CreateCase">Create Case</a>
+                            <a class="dropdown-item" href="/admin/CaseList">Kasa Listesi</a>
+                            <a class="dropdown-item" href="/admin/CreateCase">Kasa Oluştur</a>
 
                         </div>
                     </li>
@@ -94,17 +94,19 @@
                         <a href="#" class="nav-link">@Session["sessionUsername"].ToString()</a>
                     </li>
 
-                    
+
 
                     <li class="nav-item">
-                        <a href="home/LogOut" class="nav-link">Logout</a>
+                        <a href=@Url.Action("LogOut","Home") class="nav-link">Çıkış</a>
                     </li>
 
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a href="home/login" class="nav-link">Login</a>
+                        @*<a href="home/login" class="nav-link">Login</a>*@
+                       
+                        <a href=@Url.Action("Login","Home") class="nav-link">Giriş</a>
                     </li>
                 }
 
@@ -122,22 +124,22 @@
 
             </div>
 
-            
+
 
             @*<div class="col-md-1">
-                <div class="vl"></div>
+                    <div class="vl"></div>
 
-            </div>
-
-
-            <div class="col-md-3">
-
-
-                <div class="alert alert-warning">
-                    <h4>No Products</h4>
                 </div>
 
-            </div>*@
+
+                <div class="col-md-3">
+
+
+                    <div class="alert alert-warning">
+                        <h4>No Products</h4>
+                    </div>
+
+                </div>*@
 
 
         </div>
